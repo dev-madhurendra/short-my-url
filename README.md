@@ -59,6 +59,12 @@ case the algorithm can generate the same hash for the url but we can avoid this 
 
 1. Clone the repository.
 2. Install dependencies.
+    - **Backend:** 
+        Spring Data JPA
+        Spring boot starter web
+        H2 Database
+        Guvava
+        Apache commons lang3 
 3. Configure the database.
 4. Run the application.
 
