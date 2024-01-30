@@ -1,15 +1,9 @@
 server:
-  port: 8080
+  port: "${PORT}"
 spring:
-  h2:
-  console:
-    enabled: true
-  datasource:
-    url: jdbc:h2:mem:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
-
+  data:
+    mongodb:
+      uri: "${MONGO_DB_URI}"
 logging:
   level:
     com:
