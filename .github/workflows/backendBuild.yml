@@ -9,6 +9,7 @@ on:
     types: [opened, synchronize, reopened]
 jobs:
   build:
+    if: ( startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
     name: Build and analyze
     runs-on: ubuntu-latest
     timeout-minutes: 8                                    
