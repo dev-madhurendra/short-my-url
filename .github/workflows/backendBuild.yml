@@ -4,6 +4,7 @@ on:
     branches:
       - main
     paths:
+      - "backend/**"
       - ".github/workflows/backendBuild.yml"
   pull_request:
     types: [opened, synchronize, reopened]
@@ -14,7 +15,7 @@ jobs:
     timeout-minutes: 8                                    
     defaults:
       run:
-        working-directory: backend
+        working-directory: backend/urlShortner-service
     steps:
       - uses: actions/checkout@v3
         with:
