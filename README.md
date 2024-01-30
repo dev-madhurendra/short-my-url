@@ -45,7 +45,8 @@ case the algorithm can generate the same hash for the url but we can avoid this 
 4. When someone accesses the shortened URL, the API looks up the mapping and redirects to the original URL.
 
 ### System Design
-https://miro.medium.com/v2/resize:fit:720/format:webp/1*HeDm_FpLVoR3d97NKdKNLw.png
+![1_HeDm_FpLVoR3d97NKdKNLw](https://github.com/dev-madhurendra/short-my-url/assets/68775519/05bf0f00-d382-4bd9-a9b4-b1b1085c6d95)
+
 
 ## Tech Stack
 
