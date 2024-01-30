@@ -3,10 +3,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "backend/**"                                      # give the backend folder name.
+      - ".github/workflows/backendBuild.yml"     
   pull_request:
     types: [opened, synchronize, reopened]
 jobs:
   build:
+    if: ( startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
     name: Build and analyze
     runs-on: ubuntu-latest
     steps:
