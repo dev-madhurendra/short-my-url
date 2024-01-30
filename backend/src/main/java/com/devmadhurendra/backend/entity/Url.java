@@ -1,13 +1,13 @@
 package com.devmadhurendra.backend.entity;
 
-
-import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.time.LocalDateTime;
 
-@Entity
-@Table(name = "url")
+@Document(collection = "url")
 @Getter
 @Setter
 @ToString
@@ -17,13 +17,17 @@ import java.time.LocalDateTime;
 public class Url {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
-    @Lob
+    @Field
     private String originalUrl;
-    private String shortUrl;
-    private LocalDateTime createdAt;
-    private LocalDateTime expiresAt;
 
+    @Field
+    private String shortUrl;
+
+    @Field
+    private LocalDateTime createdAt;
+
+    @Field
+    private LocalDateTime expiresAt;
 }
