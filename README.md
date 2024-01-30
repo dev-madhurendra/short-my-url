@@ -44,6 +44,9 @@ case the algorithm can generate the same hash for the url but we can avoid this 
 3. API returns the shortened URL to the user.
 4. When someone accesses the shortened URL, the API looks up the mapping and redirects to the original URL.
 
+### System Design
+https://miro.medium.com/v2/resize:fit:720/format:webp/1*HeDm_FpLVoR3d97NKdKNLw.png
+
 ## Tech Stack
 
 - **Backend:** Spring Boot (Java).
