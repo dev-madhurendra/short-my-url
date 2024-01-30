@@ -17,15 +17,27 @@
 		<java.version>17</java.version>
 		<sonar.organization>dev-madhurendra</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<sonar.exclusions>
+			**/com/devmadhurendra/backend/dto/**,
+			**/com/devmadhurendra/backend/exception/**,
+			**/com/devmadhurendra/backend/repository/**,
+			**/com/devmadhurendra/backend/util/**,
+			**/com/devmadhurendra/backend/entity/**,
+			**/com/devmadhurendra/backend/payload/**,
+			**/com/devmadhurendra/backend/BackendApplication.java
+		</sonar.exclusions>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>33.0.0-jre</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-mongodb</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
