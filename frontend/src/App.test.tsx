@@ -1,5 +1,5 @@
 describe("App Component", () => {
-  it("renders the correct heading", () => {
+  it("should renders the correct heading", () => {
       expect(true).toBe(true);
   });
 });
