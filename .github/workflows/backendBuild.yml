@@ -17,7 +17,7 @@ jobs:
     timeout-minutes: 8
     defaults:
       run:
-        working-directory: backend/user-service
+        working-directory: backend/urlShortner-service
     steps:
       - uses: actions/checkout@v3
         with:
@@ -85,5 +85,5 @@ jobs:
       - name: Build and analyze
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.URL_SERVICE_SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.verbose=true -Dsonar.projectName=short-my-url-user-service -Dsonar.projectKey=dev-madhurendra_short-my-url-url-service -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml -Pcoverage
+          SONAR_TOKEN: ${{ secrets.USER_SERVICE_SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.verbose=true -Dsonar.projectName=short-my-url-user-service -Dsonar.projectKey=dev-madhurendra_short-my-url-user-service -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml -Pcoverage
