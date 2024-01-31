@@ -8,7 +8,6 @@ describe("MuiButton Tests", () => {
     const buttonElement = screen.getByText("Resume");
     expect(buttonElement).toBeInTheDocument();
   });
-
   it("calls onclick function when clicked", () => {
     const onClickMock = jest.fn();
     render(<MuiButton children="Resume" onClick={onClickMock} />);
@@ -16,13 +15,11 @@ describe("MuiButton Tests", () => {
     buttonElement.click();
     expect(onClickMock).toHaveBeenCalledTimes(1);
   });
-
   it("disables the button when disabled prop is true", () => {
     render(<MuiButton disabled={true} children="Disabled" />);
     const buttonElement = screen.getByText("Disabled");
     expect(buttonElement).toBeDisabled();
   });
-
   it("applies custom styles to the button", () => {
     const customStyle = {
       color: "green",
