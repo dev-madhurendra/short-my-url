@@ -1,43 +1,89 @@
-name: SonarCloud
+name: SonarCloud Backend
 on:
   push:
     branches:
       - main
     paths:
+      - "backend/**"
       - ".github/workflows/backendBuild.yml"
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
-  build:
-    name: Build and analyze
+  urlservice:
+    if: ( startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
+    name: BE User Service Sonar Analysis
     runs-on: ubuntu-latest
-    timeout-minutes: 8                                    
+    timeout-minutes: 8
     defaults:
       run:
-        working-directory: backend
+        working-directory: backend/user-service
     steps:
       - uses: actions/checkout@v3
         with:
-          fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-      - name: Set up JDK 17
+          fetch-depth: 0
+
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           java-version: 17
-          distribution: 'zulu' # Alternative distribution options are available.
+          distribution: "zulu"
+
       - name: Cache SonarCloud packages
         uses: actions/cache@v3
         with:
           path: ~/.sonar/cache
           key: ${{ runner.os }}-sonar
           restore-keys: ${{ runner.os }}-sonar
+
       - name: Cache Maven packages
         uses: actions/cache@v3
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-m2
+
       - name: Build and analyze
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=dev-madhurendra_short-my-url
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.URL_SERVICE_SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.verbose=true -Dsonar.projectName=short-my-url-url-service -Dsonar.projectKey=dev-madhurendra_short-my-url-url-service -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml -Pcoverage
+
+  userservice:
+    if: ( startsWith(github.head_ref, 'BE_') && github.event.pull_request.merged == false ) || ( github.event_name == 'push' )
+    name: BE User Service Sonar Analysis
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    defaults:
+      run:
+        working-directory: backend/user-service
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          java-version: 17
+          distribution: "zulu"
+
+      - name: Cache SonarCloud packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.sonar/cache
+          key: ${{ runner.os }}-sonar
+          restore-keys: ${{ runner.os }}-sonar
+
+      - name: Cache Maven packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
+          restore-keys: ${{ runner.os }}-m2
+
+      - name: Build and analyze
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.URL_SERVICE_SONAR_TOKEN }}
+        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.verbose=true -Dsonar.projectName=short-my-url-user-service -Dsonar.projectKey=dev-madhurendra_short-my-url-url-service -Dsonar.coverage.jacoco.xmlReportPaths=./target/site/jacoco/jacoco.xml -Pcoverage
