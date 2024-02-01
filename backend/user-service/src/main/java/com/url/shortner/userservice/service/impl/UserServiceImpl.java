@@ -62,8 +62,10 @@ public class UserServiceImpl implements UserService {
         if (existingUser.isPresent()) {
             User user = existingUser.get();
             if (bCryptPasswordEncoder.matches(enteredPassword, user.getPassword())) {
+                log.info("enetred into password checking if block");
                 emailService.sendOtpMailService(email);
             } else {
+                System.out.println(Constants.AUTHENTICATION_FAILED);
                 log.error(String.format(Constants.AUTHENTICATION_FAILED, email));
                 throw new AuthenticationFailedException(Constants.AUTHENTICATION_FAILED);
             }
