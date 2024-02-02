@@ -71,7 +71,7 @@ case the algorithm can generate the same hash for the url but we can avoid this 
 
 # Document
 
-- [Environment Use]()
+- [Environment Use](https://github.com/dev-madhurendra/short-my-url/blob/main/doc/ENV.md)
 
 
 ## Contributors
