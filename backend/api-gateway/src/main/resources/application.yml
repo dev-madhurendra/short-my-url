@@ -26,10 +26,10 @@ spring:
           predicates:
             - Path=/api/v1/users/**
 
-        - id: URL_SHORTNER-SERVICE
-          uri: lb://URL_SHORTNER-SERVICE
+        - id: URLSHORTNER-SERVICE
+          uri: lb://URLSHORTNER-SERVICE
           predicates:
-            - Path=/*
+            - Path=/**
 
 eureka:
   client:
