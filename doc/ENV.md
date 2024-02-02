@@ -21,4 +21,8 @@
 - **DB_URL:** `jdbc:mysql://localhost:3306/urlshortner`
 - **DB_USERNAME:** `root`
 - **DB_PASSWORD:** `admin`
+- **MAIL_PORT:** `587`
+- **MAIL_HOST:** `smtp.gmail.com`
+- **MAIL_USERNAME:** `abc@gmail.com`
+- **MAIL_PASSWORD:** `bdsx dndx qpte coiq`
 - **SERVER_REGISTRY_PORT:** `8761`
