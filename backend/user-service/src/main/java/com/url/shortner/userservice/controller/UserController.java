@@ -1,6 +1,7 @@
 package com.url.shortner.userservice.controller;
 
 import com.url.shortner.userservice.dto.LoginDTO;
+import com.url.shortner.userservice.dto.OtpVerificationRequest;
 import com.url.shortner.userservice.dto.UserDTO;
 import com.url.shortner.userservice.entity.User;
 import com.url.shortner.userservice.service.UserService;
@@ -33,6 +34,17 @@ public class UserController {
             return new ResponseEntity<>("Authentication successful. OTP sent to your email.", HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e.getMessage(), HttpStatus.UNAUTHORIZED);
+        }
+    }
+
+    @PostMapping("/verify-otp")
+    public ResponseEntity<String> verifyOtp(@RequestBody OtpVerificationRequest request) {
+        boolean isOtpValid = userService.verifyOtp(request.getEmail(), request.getOtp());
+
+        if (isOtpValid) {
+            return ResponseEntity.ok("OTP verified successfully.");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid OTP or OTP expired.");
         }
     }
 }

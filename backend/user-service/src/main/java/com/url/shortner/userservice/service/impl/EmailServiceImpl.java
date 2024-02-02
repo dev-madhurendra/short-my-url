@@ -17,12 +17,16 @@ public class EmailServiceImpl  {
     @Autowired
     private JavaMailSender javaMailSender;
 
+    @Autowired
+    private OtpStore otpStore;
+
     public void sendOtpMailService(String email) {
         String otp = generateOtp();
         try {
             System.out.println(otp);
             log.info("in try block of sendOtpMailService method");
             sendOtpToMail(email, otp);
+            otpStore.storeOtp(email, otp);
         } catch (MessagingException e) {
             log.error("Error sending OTP email", e);
             throw new RuntimeException("Unable to send OTP");

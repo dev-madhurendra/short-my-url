@@ -12,4 +12,6 @@ public interface UserService {
     public User register(UserDTO userDTO);
 
     void authenticateAndSendOTP(String email, String enteredPassword);
+
+    boolean verifyOtp(String email, String otp);
 }

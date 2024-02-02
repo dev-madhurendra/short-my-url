@@ -31,6 +31,9 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private EmailServiceImpl emailService;
 
+    @Autowired
+    private OtpStore otpStore;
+
     @Override
     public User getUserByEmail(String email) {
         return userRepository.findByEmail(email)
@@ -74,6 +77,15 @@ public class UserServiceImpl implements UserService {
             log.error(String.format(UserMessages.USER_NOT_FOUND, email));
             throw new UserNotFoundException(String.format(UserMessages.USER_NOT_FOUND, email));
         }
+    }
+
+    public boolean verifyOtp(String email, String otp) {
+        boolean isValid = otpStore.validateOtp(email, otp);
+        if (isValid) {
+            otpStore.clearOtp(email);
+            return true;
+        }
+        return false;
     }
 
 
