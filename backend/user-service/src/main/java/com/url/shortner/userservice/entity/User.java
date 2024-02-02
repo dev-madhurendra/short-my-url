@@ -21,5 +21,5 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private boolean isVerified;
+    private boolean isVerified = false;
 }

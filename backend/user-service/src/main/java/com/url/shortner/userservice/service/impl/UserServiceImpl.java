@@ -65,7 +65,7 @@ public class UserServiceImpl implements UserService {
         if (existingUser.isPresent()) {
             User user = existingUser.get();
             if (bCryptPasswordEncoder.matches(enteredPassword, user.getPassword())) {
-                log.info("enetred into password checking if block");
+                log.info(">>> Entered into password checking if block");
                 emailService.sendOtpMailService(email);
             } else {
                 System.out.println(Constants.AUTHENTICATION_FAILED);
@@ -81,8 +81,13 @@ public class UserServiceImpl implements UserService {
 
     public boolean verifyOtp(String email, String otp) {
         boolean isValid = otpStore.validateOtp(email, otp);
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new UserNotFoundException("User not found with email " + email));
+
         if (isValid) {
             otpStore.clearOtp(email);
+            user.setVerified(true);
+            userRepository.save(user);
             return true;
         }
         return false;

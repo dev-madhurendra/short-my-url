@@ -25,7 +25,4 @@ public class UserDTO {
 
     @Pattern(regexp = Constants.PASSWORD_PATTERN, message = Constants.PASSWORD_INVALID)
     private String password;
-
-    @NotBlank(message =Constants.IS_VERIFIED_BLANK)
-    private boolean isVerified;
 }
