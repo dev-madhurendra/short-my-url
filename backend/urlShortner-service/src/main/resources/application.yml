@@ -1,11 +1,22 @@
 server:
-  port: "${PORT}"
+  port: ${URL_SHORTENER_SERVICE_PORT}
 spring:
+  application:
+    name: URL_SHORTNER-SERVICE
   data:
     mongodb:
-      uri: "${MONGO_DB_URI}"
+      uri: ${MONGO_DB_URI}
 logging:
   level:
     com:
       stackfortech: DEBUG
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    preferIpAddress: false
+    hostname: localhost
 
