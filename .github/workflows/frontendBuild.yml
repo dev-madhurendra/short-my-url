@@ -53,7 +53,5 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
       - name: Take Snapshot of Coverage
-        run: 
-          cd ../script/
-          npm install puppeteer
-          node fe-coverage-script.js
+        run: cd ../script/ && npm install puppeteer && node fe-coverage-script.js
+
