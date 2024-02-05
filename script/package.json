@@ -1,0 +1,16 @@
+{
+  "name": "script",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fe-coverage-script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "puppeteer": "^22.0.0"
+  }
+}
