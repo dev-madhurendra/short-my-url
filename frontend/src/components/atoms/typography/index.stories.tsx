@@ -2,7 +2,7 @@ import React from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 import MuiTypography from './index'; 
 const meta: Meta<typeof MuiTypography> = {
-  title: 'Example/MuiTypography',
+  title: 'atoms/Typography',
   component: MuiTypography,
   argTypes: {
     variant: {
