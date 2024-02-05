@@ -1,4 +1,3 @@
-import React from "react";
 import { image_DataTestId } from "../../../utils/constants";
 
 interface ImageComponentProps {
@@ -7,8 +6,15 @@ interface ImageComponentProps {
   width?: string;
 }
 
-const ImageComponent = ({src,height,width}: ImageComponentProps) => {
-  return <img data-testid={image_DataTestId} src={src} width={width} height={height}></img>;
+const ImageComponent = ({ src, height, width }: ImageComponentProps) => {
+  return (
+    <img
+      data-testid={image_DataTestId}
+      src={src}
+      width={width}
+      height={height}
+    ></img>
+  );
 };
 
-export default ImageComponent
+export default ImageComponent;
