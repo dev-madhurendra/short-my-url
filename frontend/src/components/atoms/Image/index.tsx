@@ -1,10 +1,6 @@
 import { IMAGE_DATATESTID } from "../../../utils/constants";
+import { ImageComponentProps } from "../../../utils/interfaces";
 
-interface ImageComponentProps {
-  src: string;
-  height?: string;
-  width?: string;
-}
 
 const ImageComponent = ({ src, height, width }: ImageComponentProps) => {
   return (

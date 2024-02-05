@@ -2,18 +2,8 @@ import React, { useState } from 'react';
 import { TextField, IconButton, InputAdornment } from '@mui/material';
 import EyeOn from "../../../../public/assets/images/eye.svg";
 import EyeOff from "../../../../public/assets/images/Vector.svg";
-import IconComponent from '../icon';
-
-export interface TextFieldProps {
-  placeholder?: string;
-  value: string;
-  onChange: (value: string) => void;
-  isPassword: boolean;
-  width?: string;
-  height?: string | number;
-  size?: "small" | "medium";
-  borderRadius?: string | number;
-}
+import IconComponent from '../Icon';
+import { TextFieldProps } from '../../../utils/interfaces';
 
 const CustomTextField: React.FC<TextFieldProps> = ({
   placeholder,
