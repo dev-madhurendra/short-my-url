@@ -1,7 +1,7 @@
-import { Button, ButtonProps } from "@mui/material";
+import { Button } from "@mui/material";
+import { ButtonPropsInterface } from "../../../utils/interfaces";
 
-interface ButtonPropsInterface extends ButtonProps {}
-
-const MuiButton = ({ ...buttonProps }: ButtonPropsInterface) => <Button {...buttonProps} disableElevation disableRipple />;
+const MuiButton = ({ ...buttonProps }: ButtonPropsInterface) =>
+    <Button {...buttonProps} disableElevation disableRipple />;
 
 export default MuiButton;

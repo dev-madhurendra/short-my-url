@@ -1,12 +1,4 @@
-import React from "react";
-
-interface IconComponentProps {
-  width?: string;
-  height?: string;
-  padding?: string;
-  src: string;
-  sx?:React.CSSProperties,
-}
+import { IconComponentProps } from "../../../utils/interfaces";
 
 const IconComponent = (props: IconComponentProps) => {
     const { src, width, height, padding } = props;

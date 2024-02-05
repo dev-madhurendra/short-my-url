@@ -1,5 +1,5 @@
-import MuiTypography from "../../atoms/typography";
-import IconComponent from "../../atoms/icon";
+import MuiTypography from "../../atoms/Typography";
+import IconComponent from "../../atoms/Icon";
 import { SocialLoginProps } from "../../../utils/interfaces";
 import { StylesBox } from "./styles";
 
