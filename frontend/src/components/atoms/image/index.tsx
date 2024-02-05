@@ -1,4 +1,4 @@
-import { image_DataTestId } from "../../../utils/constants";
+import { IMAGE_DATATESTID } from "../../../utils/constants";
 
 interface ImageComponentProps {
   src: string;
@@ -9,7 +9,7 @@ interface ImageComponentProps {
 const ImageComponent = ({ src, height, width }: ImageComponentProps) => {
   return (
     <img
-      data-testid={image_DataTestId}
+      data-testid={IMAGE_DATATESTID}
       src={src}
       width={width}
       height={height}

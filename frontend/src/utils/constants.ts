@@ -1,3 +1,3 @@
 
-export const typography_DataTestId='typography-component'
-export const  image_DataTestId='image'
+export const TYPOGRAPHY_DATATESTID='typography-component'
+export const  IMAGE_DATATESTID='image'
