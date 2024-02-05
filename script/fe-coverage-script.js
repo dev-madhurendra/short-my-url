@@ -1,3 +1,4 @@
+const path = require('path');
 const puppeteer = require('puppeteer');
 
 async function takeScreenshot() {
@@ -10,7 +11,8 @@ async function takeScreenshot() {
       timeout: 60000,
     });
 
-    await page.screenshot({ path: '../coverage/FE-SONAR-COVERAGE.png', fullPage: true });
+    const screenshotPath = path.join(__dirname, '../coverage/FE-SONAR-COVERAGE.png');
+    await page.screenshot({ path: screenshotPath, fullPage: true });
   } catch (error) {
     console.error('Error during navigation:', error);
   } finally {
