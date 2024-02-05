@@ -1,6 +1,6 @@
 import React from "react";
-import MuiTypography from "../../atoms/typography";
-import CustomTextField from "../../atoms/textfield";
+import CustomTextField from "../../atoms/Textfield";
+import MuiTypography from "../../atoms/Typography";
 import { TypographyWithTextFieldProps } from "../../../utils/interfaces";
 
 const TypographyWithTextField: React.FC<TypographyWithTextFieldProps> = ({
@@ -14,7 +14,7 @@ const TypographyWithTextField: React.FC<TypographyWithTextFieldProps> = ({
   height,
   size,
   borderRadius,
-  variant
+  variant,
 }) => {
   return (
     <>
@@ -24,17 +24,18 @@ const TypographyWithTextField: React.FC<TypographyWithTextFieldProps> = ({
         color={color}
         sx={{ marginBottom: "-10px" }}
       />
-        <CustomTextField
-          placeholder={placeholder}
-          value={value}
-          onChange={onChange}
-          isPassword={isPassword}
-          width={width}
-          height={height}
-          size={size}
-          borderRadius={borderRadius}
-        />
-  </>
+      <CustomTextField
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        isPassword={isPassword}
+        width={width}
+        height={height}
+        size={size}
+        borderRadius={borderRadius}
+    
+      />
+    </>
   );
 };
 
